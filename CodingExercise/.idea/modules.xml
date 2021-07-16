@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1_SpeedConverter/1_SpeedConverter.iml" filepath="$PROJECT_DIR$/1_SpeedConverter/1_SpeedConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2_MegaBytesConverter/2_MegaBytesConverter.iml" filepath="$PROJECT_DIR$/2_MegaBytesConverter/2_MegaBytesConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3_BarkingDog/3_BarkingDog.iml" filepath="$PROJECT_DIR$/3_BarkingDog/3_BarkingDog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4_LeapYearCalculator/4_LeapYearCalculator.iml" filepath="$PROJECT_DIR$/4_LeapYearCalculator/4_LeapYearCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5_DecimalComparator/5_DecimalComparator.iml" filepath="$PROJECT_DIR$/5_DecimalComparator/5_DecimalComparator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/6_EqualSumChecker/6_EqualSumChecker.iml" filepath="$PROJECT_DIR$/6_EqualSumChecker/6_EqualSumChecker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CodingExercise.iml" filepath="$PROJECT_DIR$/.idea/CodingExercise.iml" />
+    </modules>
+  </component>
+</project>
