@@ -14,9 +14,9 @@ public class Main {
         }
         int sum = 0;
         while( number > 0) {
-            System.out.println(sum);
+//            System.out.println(sum);
             sum += number % 10;
-            System.out.println(number);
+//            System.out.println(number);
             number = number / 10;
         }
         return sum;
