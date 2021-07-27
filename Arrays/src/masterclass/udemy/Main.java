@@ -31,22 +31,22 @@ public class Main {
 //        ArrayList<int> intArrayLIst = new ArrayList<int>();
         ArrayList<IntClass> intClassArrayList = new ArrayList<IntClass>();
         intClassArrayList.add(new IntClass(54));
-        //Autoboxing//
         Integer integer = new Integer(54);
         Double doubleValue = new Double((12.25));
 
         ArrayList<Integer> intArrayList = new ArrayList<Integer>();
         for (int i = 0; i <= 10; i++) {
-            intArrayList.add(Integer.valueOf(i));
+            intArrayList.add(Integer.valueOf(i));     //Autoboxing//
         }
 
         for (int i = 0; i <= 10; i++) {
-            System.out.println(i + " -->" + intArrayList.get(i).intValue());
+            System.out.println(i + " -->" + intArrayList.get(i).intValue());    //Unboxing//
         }
 
-        //Autoboxing//
+        //Autoboxing Shortcut//
 //        Integer myIntValue = Integer.valueOf(56);
         Integer myIntValue = 56;
+        //Unboxing Shortcut//
 //        int myInt = myIntValue.intValue(56);
         int myInt = myIntValue.intValue();
 
@@ -54,12 +54,12 @@ public class Main {
         for(double dbl=0.0; dbl<=10.0; dbl+=0.5) {
 
 //            myDoubleValues.add(Double.valueOf(dbl));    //autoboxing//
-            myDoubleValues.add(dbl);                       //unboxing//
+            myDoubleValues.add(dbl);
         }
 
         for(int i=0; i<myDoubleValues.size(); i++) {
-//            double value = myDoubleValues.get(i).doubleValue(); //autoboxing//
-            double value = myDoubleValues.get(i);       //unboxing//
+//            double value = myDoubleValues.get(i).doubleValue(); //unboxing//
+            double value = myDoubleValues.get(i);
             System.out.println(i + " --> " + value);
         }
     }
