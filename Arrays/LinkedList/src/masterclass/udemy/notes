@@ -34,3 +34,44 @@
         string1 = "b";
         string2 = "a";
         int comparisonResult3 = string1.compareTo(string2);  outputs a positive integer
+
+#########################################################################################################################
+
+    Forget about the concept of infinite loop for now. Just understand that the position of the iterator
+    in the linked list has to be between elements. Suppose a list has the elements "Alpha", "Bravo", "Charlie",
+    then the carrots would mark possible positions of the iterator.
+
+    ^ Alpha  Bravo  Charlie
+
+    As the Java docs explain, the iterator starts before the first element at carrot 1,
+    so when you call .next() it jumps over the first element (Alpha) and returns the value.
+    It's now positioned here:
+
+    Alpha ^ Bravo  Charlie
+
+    Then if you call .next() again it returns Bravo and the iterator is here:
+
+    Alpha  Bravo ^ Charlie
+
+    So what if you then decide to go backwards? At this point, if you call .previous() once,
+    the iterator jumps back over Bravo in the other direction, and that is why Bravo will be returned again,
+    resulting in repeats when printed to the console.
+
+    Alpha ^ Bravo  Charlie
+
+    This is all because the iterator is setup to return the value it just jumped over.
+    That is what a boolean flag like 'goingForward' is trying to solve.
+
+        case 1: // visits the next city in the list
+            if (!goingForward) {
+                citiesIterator.next();
+                goingForward = true;
+            }
+
+    The flag is meant to indicate the last direction, which will tell us if the user was trying to change
+    direction. So when the user wants to move forward (case 1), we have to check if their last action was
+    moving backwards. If it was, then goingForward would've been set to false, and we must call an extra
+    .next() to skip over the redundant element.
+
+    Likewise if the user wants to move backward (case 2), we have to check if their last action was moving forward.
+    If goingForward is set to true, then we must call an extra .previous() to skip over the redundant element.
