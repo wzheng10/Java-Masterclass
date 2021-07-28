@@ -1,0 +1,36 @@
+
+1. The Iterator
+    ListIterator<String> stringListIterator is used to go over the elements of the linkedList object
+    which was specified in the parameter list of the addInOrder method.
+
+    Whenever you call stringListIterator.next(), you get reference to the next element of the linkedList object.
+    Since this linkedList object holds String objects, the stringListIterator.next() method
+    returns a reference of a String to you.
+
+    2. The compareTo method
+
+    So in this method our goal was to add an element to our list immediately in the right order.
+    To do this, we need a way to decide the order between any two elements of the list.
+    This task is very easy for example with numbers, because all you need to do to compare numbers
+    is to use the <, > and == operators.
+
+    This is not possible between String objects. This is why the String class implements the Comparable interface,
+    which supplies String objects with the compareTo method.
+
+    If you take a closer look at the Javadoc of the compareTo method you will see the following:
+
+        "returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object."
+        string 1 is equal to string2
+        String string1 = "Java";
+        String string2 = "Java";
+        int comparisonResult1 = string1.compareTo(string2);  outputs 0
+
+        string1 is smaller than string2 (it is ordered before string2) since "a" is before "b" in the alphabet
+        string1 = "a";
+        string2 = "b";
+        int comparisonResult2 = string1.compareTo(string2);  outputs a negative integer
+
+        string1 is greater than string2 (it is ordered after string2) since "b" is after "a" in the alphabet
+        string1 = "b";
+        string2 = "a";
+        int comparisonResult3 = string1.compareTo(string2);  outputs a positive integer
