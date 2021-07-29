@@ -19,18 +19,9 @@ public class Album {
         return this.songs.add(new Song(title, duration));
     }
 
-    private Song findSong(String title) {
-        for (Song checkedSong : this.songs) {
-            if (checkedSong.getTitle().equals(title)) {
-                return checkedSong;
-            }
-        }
-        return null;
-    }
-
     public boolean addToPlayList(int trackNumber, LinkedList<Song> playList) {
         Song checkedSong = this.songs.findSong(trackNumber);
-        if(checkedSong != null) {
+        if (checkedSong != null) {
             playList.add(checkedSong);
             return true;
         }
@@ -40,7 +31,7 @@ public class Album {
 
     public boolean addToPlayList(String title, LinkedList<Song> playList) {
         Song checkedSong = songs.findSong(title);
-        if(checkedSong != null) {
+        if (checkedSong != null) {
             playList.add(checkedSong);
             return true;
         }
@@ -56,7 +47,7 @@ public class Album {
         }
 
         public boolean add(Song song) {
-            if(songs.contains(song)) {
+            if (songs.contains(song)) {
                 return false;
             }
             this.songs.add(song);
@@ -74,9 +65,12 @@ public class Album {
 
         public Song findSong(int trackNumber) {
             int index = trackNumber - 1;
-            if ((index > 0) && (index<songs.size()));
-            return songs.get(index);
+            if ((index > 0) && (index < songs.size())) {
+                return songs.get(index);
+            }
+
+            return null;
         }
-        return null;
     }
+
 }
