@@ -15,9 +15,20 @@ public class Main {
         System.out.println(wei);
         wei.setWeapon("Stormbringer");
         saveObject(wei);
-        loadObject(wei);
+//        loadObject(wei);
         System.out.println(wei);
+
+//        Method #1 to use .getStrength
+//        ISaveable werewolf = new Monster("Werewolf", 20, 40);
+//        System.out.println("Strength = " + ((Monster) werewolf).getStrength()); //casting werewolf to the (Monster Class Type)
+//        Method # 2
+        Monster werewolf = new Monster("Werewolf", 20, 40);
+        int werewolfStrength = werewolf.getStrength();
+        System.out.println("Strength = " + werewolfStrength);
+//        System.out.println(werewolf);
+        saveObject(werewolf);
     }
+
 
     public static ArrayList<String> readValues() {
         ArrayList<String> values = new ArrayList<String>();

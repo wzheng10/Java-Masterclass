@@ -1,5 +1,6 @@
 package masterclass.udemy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Monster implements ISaveable{
@@ -28,12 +29,20 @@ public class Monster implements ISaveable{
 
     @Override
     public List<String> write() {
-        return null;
+        ArrayList<String> values = new ArrayList<String>();
+        values.add(0, this.name);
+        values.add(1, "" +this.hitPoints);
+        values.add(2, "" + this.strength);
+        return values;
     }
 
     @Override
     public void read(List<String> savedValues) {
-
+        if(savedValues != null && savedValues.size() > 0) {
+            this.name = savedValues.get(0);
+            this.hitPoints = Integer.parseInt(savedValues.get(1));
+            this.strength = Integer.parseInt(savedValues.get(2));
+        }
     }
 
     @Override
