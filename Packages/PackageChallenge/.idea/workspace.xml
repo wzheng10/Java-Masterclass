@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="297bea72-a7c0-4a84-9977-8a9ff63a139f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PackageChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/masterclass/udemy/mylibrary/Series.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Arrays/LinkedList/out/production/LinkedList/masterclass/udemy/notes" beforeDir="false" afterPath="$PROJECT_DIR$/../../Arrays/LinkedList/out/production/LinkedList/masterclass/udemy/notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CodingExercise/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../CodingExercise/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CodingExercise/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../CodingExercise/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CodingExercise/21_AllFactors/out/production/21_AllFactors/masterclass/udemy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../CodingExercise/21_AllFactors/out/production/21_AllFactors/masterclass/udemy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CodingExercise/21_AllFactors/src/masterclass/udemy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CodingExercise/21_AllFactors/src/masterclass/udemy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CodingExercise/30_Person/src/masterclass/udemy/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CodingExercise/30_Person/src/masterclass/udemy/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CodingExercise/42_MinimumElement/src/masterclass/udemy/notes" beforeDir="false" afterPath="$PROJECT_DIR$/../../CodingExercise/42_MinimumElement/src/masterclass/udemy/notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Generics/GenericsClass/out/production/GenericsClass/masterclass/udemy/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Generics/GenericsClass/out/production/GenericsClass/masterclass/udemy/Team.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Generics/GenericsClass/src/masterclass/udemy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Generics/GenericsClass/src/masterclass/udemy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Generics/GenericsClass/src/masterclass/udemy/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Generics/GenericsClass/src/masterclass/udemy/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Bird.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Bird.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/CanFly.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/CanFly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Parrot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Parrot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Penguin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Abstract/src/masterclass/udemy/Penguin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/InnerClasses/out/production/InnerClasses/masterclass/udemy/Main$1ClickListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/InnerClasses/out/production/InnerClasses/masterclass/udemy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/InnerClasses/out/production/InnerClasses/masterclass/udemy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/InnerClasses/src/masterclass/udemy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/InnerClasses/src/masterclass/udemy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/DeskPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/DeskPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/ITelephone.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/ITelephone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/MobilePhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../InterfacesInnerAbstractClasses/Interfaces/src/masterclass/udemy/MobilePhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OOP_2/Encapsulation/src/masterclass/udemy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../OOP_2/Encapsulation/src/masterclass/udemy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/out/production/ListAndArrayList/masterclass/udemy/GroceryList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/out/production/ListAndArrayList/masterclass/udemy/GroceryList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/out/production/ListAndArrayList/masterclass/udemy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/out/production/ListAndArrayList/masterclass/udemy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/src/masterclass/udemy/GroceryList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/src/masterclass/udemy/GroceryList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/src/masterclass/udemy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../OOP_2/ListAndArrayList/src/masterclass/udemy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PackageDemo/src/com/example/game/ISaveable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PackageDemo/src/com/example/game/ISaveable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PackageDemo/src/com/example/game/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PackageDemo/src/com/example/game/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PackageDemo/src/com/example/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PackageDemo/src/com/example/game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WinDemo/out/production/WinDemo/com/example/awtSample/MyWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../WinDemo/out/production/WinDemo/com/example/awtSample/MyWindow$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WinDemo/src/com/example/awtSample/MyWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WinDemo/src/com/example/awtSample/MyWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tim's/Banking.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tim's/LinkedList.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tim's/New folder/.idea/New folder.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tim/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Time/.idea/.gitignore" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1w6C6ORffV9gIuIWJxDPXZsM6tq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="masterclass.udemy.Main" />
+      <module name="PackageChallenge" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="PackageChallenge" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="PackageChallenge" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="297bea72-a7c0-4a84-9977-8a9ff63a139f" name="Default Changelist" comment="" />
+      <created>1627769474837</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627769474837</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
