@@ -13,24 +13,28 @@ public class ScopeCheck {
     }
 
     public void timesTwo() {
-        int privateVar = 2;
+        int varTwo = 2;
         for(int i = 0; i< 10; i++) {
-            System.out.println(i + " times two is " + i * privateVar);
+            System.out.println(i + " times two is " + i * varTwo);
 //            System.out.println("Value of i is now " + i);
         }
     }
 
+    public void useInner() {
+        InnerClass innerClass = new InnerClass();
+        System.out.println("varThree from outer class: " + innerClass.varThree);
+    }
     public class InnerClass {
-        public int privateVar = 3;
+        public int varThree = 3;
 
         public InnerClass() {
-            System.out.println("InnerClass created, privateVar is " + privateVar);
+            System.out.println("InnerClass created, varOne is " + varOne + " and varThree is " + varThree);
         }
 
         public void timesTwo() {
-            ScopeCheck.this.timesTwo();
+            System.out.println("varOne is still available here " + varOne);
             for (int i = 0; i < 10; i++) {
-                System.out.println(i + " times two is " + i * ScopeCheck.this.varOne);
+                System.out.println(i + " times two is " + i * this.varThree);
                 //ScopeCheck.this.privateVar will refer to the class scope since
                 //this.privateVar will result in an error as there are no privateVar variables within the innerClass
             }
