@@ -29,7 +29,7 @@ public class Theatre {
         int high = seats.size() - 1;
 
         while (low <= high) {
-            System.out.println(".");
+            System.out.print(".");
             int mid = (low + high) / 2;
             Seat midVal = seats.get(mid);
             int cmp = midVal.getSeatNumber().compareTo(seatNumber);
