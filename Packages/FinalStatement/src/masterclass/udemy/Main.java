@@ -15,13 +15,13 @@ public class Main {
 		System.out.println(Math.PI);
 //		Math m = new Math();
 		int pw = 123459096;
-		Password password = new Password(pw);
+		Password password = new ExtendedPassword(pw);
 		password.storePassword();
 
 		password.letMeIn(1);
 		password.letMeIn(123);
 		password.letMeIn(-1);
-		password.letMeIn(pw);
+		password.letMeIn(123459096);
 		password.letMeIn(123456);
 
 	}
