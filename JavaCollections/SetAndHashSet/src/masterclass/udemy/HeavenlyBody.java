@@ -29,7 +29,9 @@ public final class HeavenlyBody {
     public Set<HeavenlyBody> getSatellites() {
         return new HashSet<>(this.satellites);
     }
-
+//  The HeavenlyBody class is declared final, so we cannot be subclassed.
+//   The Java String class is also final, which is why it can safely use the instanceof
+//   method without having to worry about comparisons with a subclass
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
