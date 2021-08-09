@@ -20,6 +20,10 @@
 <?import java.lang.String?>
 
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.DatePicker?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Click Me">
@@ -90,4 +94,12 @@
             </FXCollections>
         </items>
     </ChoiceBox>
+    <Slider GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="4" min="0" max="100"
+        showTickLabels="true"  showTickMarks="true" minorTickCount="4" snapToTicks="true"/>
+    <Spinner GridPane.rowIndex="2" GridPane.columnIndex="4" min="0" max="100"
+        editable="true" initialValue="50"/>
+
+    <ColorPicker GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+
+    <DatePicker GridPane.rowIndex="4" GridPane.columnIndex="0"/>
 </GridPane>
