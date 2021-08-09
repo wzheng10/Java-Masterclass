@@ -24,6 +24,8 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Accordion?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Click Me">
@@ -95,11 +97,26 @@
         </items>
     </ChoiceBox>
     <Slider GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="4" min="0" max="100"
-        showTickLabels="true"  showTickMarks="true" minorTickCount="4" snapToTicks="true"/>
+            showTickLabels="true" showTickMarks="true" minorTickCount="4" snapToTicks="true"/>
     <Spinner GridPane.rowIndex="2" GridPane.columnIndex="4" min="0" max="100"
-        editable="true" initialValue="50"/>
+             editable="true" initialValue="50"/>
 
     <ColorPicker GridPane.rowIndex="3" GridPane.columnIndex="0"/>
 
-    <DatePicker GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <DatePicker GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Accordion GridPane.rowIndex="3" GridPane.columnIndex="2" GridPane.columnSpan="2"
+        expandedPane="$tp3">
+        <panes>
+            <TitledPane text="Titled Pane">
+                <Label text="Label in titled pane"/>
+            </TitledPane>
+            <TitledPane text="Titled Pane 2" >
+                <Label text="Label 2 in titled pane"/>
+            </TitledPane>
+            <TitledPane fx:id="tp3" text="Titled Pane 3">
+                <Label text="Label 3 in titled pane"/>
+            </TitledPane>
+        </panes>
+    </Accordion>
 </GridPane>
