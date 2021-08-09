@@ -13,17 +13,24 @@
 <?import javafx.scene.control.ToggleButton?>
 
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
+
+<?import javafx.scene.control.ChoiceBox?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Click Me">
-            <graphic>
-                <ImageView>
-                    <Image url="@/toolbarButtonGraphics/general/TipOfTheDay24.gif"/>
-                </ImageView>
-            </graphic>
-        </Button>
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/TipOfTheDay24.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
     <Label GridPane.rowIndex="0" GridPane.columnIndex="1" text="This is a label This is a label This is a label"
-    textFill="Blue" WrapText="true">
+           textFill="Blue" WrapText="true">
         <font>
             <Font name="Arial italic" size="12"/>
         </font>
@@ -36,23 +43,51 @@
     <fx:define>
         <ToggleGroup fx:id="colorToggleGroup"/>
     </fx:define>
+    <VBox GridPane.rowIndex="0" GridPane.columnIndex="2">
+        <RadioButton text="Red" toggleGroup="$colorToggleGroup"/>
+        <RadioButton text="Blue" toggleGroup="$colorToggleGroup" selected="true"/>
+        <RadioButton text="Green" toggleGroup="$colorToggleGroup"/>
+    </VBox>
+    <!--    <CheckBox text="Subscribe to our newsletter" GridPane.rowIndex="0" GridPane.columnIndex="5"-->
+    <!--        indeterminate="true"/>-->
 
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="2" text="Red" toggleGroup="$colorToggleGroup"/>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="3" text="Blue" toggleGroup="$colorToggleGroup" selected="true"/>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="4" text="Green" toggleGroup="$colorToggleGroup"/>
-
-<!--    <CheckBox text="Subscribe to our newsletter" GridPane.rowIndex="0" GridPane.columnIndex="5"-->
-<!--        indeterminate="true"/>-->
-
-    <VBox GridPane.rowIndex="0" GridPane.columnIndex="5">
+    <VBox GridPane.rowIndex="0" GridPane.columnIndex="3">
         <CheckBox text="Dog"/>
         <CheckBox text="Cat"/>
         <CheckBox text="Bird"/>
     </VBox>
-    <HBox GridPane.rowIndex="0" GridPane.columnIndex="6">
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="4">
         <ToggleButton text="Toggle Me"/>
         <ToggleButton text="Hello"/>
         <ToggleButton text="Good Bye"/>
     </HBox>
-<!--    <ToggleButton text="Toggle Me" GridPane.rowIndex="0" GridPane.columnIndex="6"/>-->
+    <!--    <ToggleButton text="Toggle Me" GridPane.rowIndex="0" GridPane.columnIndex="6"/>-->
+    <TextField GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <PasswordField GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <ComboBox GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.columnSpan="2">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="This is Option 1"/>
+                <String fx:value="This is Option 2"/>
+                <String fx:value="This is Option 3"/>
+                <String fx:value="This is Option 4"/>
+                <String fx:value="This is Option 5"/>
+
+            </FXCollections>
+        </items>
+        <value>
+            <String fx:value="This is Option 4"/>
+        </value>
+    </ComboBox>
+    <ChoiceBox GridPane.rowIndex="1" GridPane.columnIndex="4">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="cb 1"/>
+                <String fx:value="cb 2"/>
+                <String fx:value="cb 3"/>
+                <String fx:value="cb 4"/>
+                <String fx:value="cb 5"/>
+            </FXCollections>
+        </items>
+    </ChoiceBox>
 </GridPane>
