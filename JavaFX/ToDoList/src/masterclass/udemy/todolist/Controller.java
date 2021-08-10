@@ -4,12 +4,14 @@ import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import masterclass.udemy.todolist.datamodel.TodoData;
 import masterclass.udemy.todolist.datamodel.TodoItem;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -29,29 +31,15 @@ public class Controller {
     @FXML
     private Label deadlineLabel;
 
-    public void initialize() {
-        TodoItem item1 = new TodoItem("Mail birthday card", "By a 30th birthday card for John",
-                LocalDate.of(2016, Month.APRIL, 25));
-        TodoItem item2 = new TodoItem("Doctor's Appointment", "See Dr. Smith at 123 Main Street. Bring paperwork.",
-                LocalDate.of(2016, Month.MAY, 23));
-        TodoItem item3 = new TodoItem("Finish design proposal for client", "I promised Mike I'd email website mockups by Friday 22nd April",
-                LocalDate.of(2016, Month.APRIL, 22));
-        TodoItem item4 = new TodoItem("Pickup Doug at the train station", "Doug's arriving on March23, on the 5:00 train.",
-                LocalDate.of(2016, Month.MARCH, 23));
-        TodoItem item5 = new TodoItem("Pick up dry cleaning", "The clothes should be ready by Wednesday",
-                LocalDate.of(2016, Month.APRIL, 20));
+    @FXML
+    private BorderPane mainBorderPane;
 
-        todoItems = new ArrayList<TodoItem>();
-        todoItems.add(item1);
-        todoItems.add(item2);
-        todoItems.add(item3);
-        todoItems.add(item4);
-        todoItems.add(item5);
+    public void initialize() {
 
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observable, TodoItem oldValue, TodoItem newValue) {
-                if(newValue != null) {
+                if (newValue != null) {
                     TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
                     itemDetailsTextArea.setText(item.getDetails());
                     DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
@@ -62,9 +50,22 @@ public class Controller {
 
 
         //makes it so that you can select only one task at a time
-        todoListView.getItems().setAll(todoItems);
+        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
+    }
+    @FXML
+    public void showNewItemDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("todoItemDialog.fxml"));
+            dialog.getDialogPane().setContent(root);
+        } catch(IOException e) {
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
     }
 
     //displays the details of each TodoList task
@@ -74,13 +75,6 @@ public class Controller {
         itemDetailsTextArea.setText(item.getDetails());
         deadlineLabel.setText(item.getDeadline().toString());
 
-//        System.out.println("The selected item is " + item);
-//        StringBuilder sb = new StringBuilder(item.getDetails());
-//        sb.append("\n\n\n\n");
-//        sb.append("Due: ");
-//        // adding the Due Dates
-//        sb.append(item.getDeadline().toString());
-//        itemDetailsTextArea.setText(sb.toString());
-
     }
 }
+

@@ -32,9 +32,10 @@ public class TodoData {
         return todoItems;
     }
 
-    public void setTodoItems(List<TodoItem> todoItems) {
-        this.todoItems = todoItems;
-    }
+    //for the hard coded items
+//    public void setTodoItems(List<TodoItem> todoItems) {
+//        this.todoItems = todoItems;
+//    }
 
     public void loadTodoItems() throws IOException {
 
