@@ -38,8 +38,8 @@ public class TodoItem {
     }
 
     //creates the shortDescription on the lefthand side to be visible
-    @Override
-    public String toString() {
-        return shortDescription;
-    }
+//    @Override
+//    public String toString() {
+//        return shortDescription;
+//    }
 }

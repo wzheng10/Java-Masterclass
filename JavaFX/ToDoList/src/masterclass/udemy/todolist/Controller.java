@@ -6,10 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 import masterclass.udemy.todolist.datamodel.TodoData;
 import masterclass.udemy.todolist.datamodel.TodoItem;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +22,7 @@ public class Controller {
     private List<TodoItem> todoItems;
 
     @FXML
-    private ListView todoListView;
+    private ListView<TodoItem> todoListView;
 
     @FXML
     private TextArea itemDetailsTextArea;
@@ -44,12 +47,36 @@ public class Controller {
             }
         });
 
-
         //makes it so that you can select only one task at a time
-        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+        todoListView.setItems(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
+
+        todoListView.setCellFactory(new Callback<ListView<TodoItem>, ListCell<TodoItem>>() {
+            @Override
+            public ListCell<TodoItem> call(ListView<TodoItem> param) {
+                ListCell<TodoItem> cell = new ListCell<TodoItem>() {
+                    @Override
+                    protected void updateItem(TodoItem item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if(empty) {
+                            setText(null);
+                        } else {
+                            setText(item.getShortDescription());
+                            if(item.getDeadline().isBefore(LocalDate.now().plusDays(1))) {
+                                setTextFill(Color.RED);
+                            } else if (item.getDeadline().equals(LocalDate.now().plusDays(1))) {
+                                setTextFill(Color.BROWN);
+                            }
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
     }
+
+
     @FXML
     public void showNewItemDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
@@ -61,7 +88,7 @@ public class Controller {
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Couldn't load the dialog");
             e.printStackTrace();
             return;
@@ -71,14 +98,11 @@ public class Controller {
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
         Optional<ButtonType> result = dialog.showAndWait();
-        if(result.isPresent() && result.get() == ButtonType.OK) {
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
             TodoItem newItem = controller.processResults();
-            todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
             todoListView.getSelectionModel().select(newItem);
-            System.out.println("OK pressed");
-        } else
-            System.out.println("Cancel Pressed");
+        }
     }
 
     //displays the details of each TodoList task
