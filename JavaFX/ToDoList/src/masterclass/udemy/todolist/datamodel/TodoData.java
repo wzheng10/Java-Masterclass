@@ -32,6 +32,11 @@ public class TodoData {
         return todoItems;
     }
 
+    public void addTodoItem(TodoItem item) {
+        todoItems.add(item);
+
+    }
+
     //for the hard coded items
 //    public void setTodoItems(List<TodoItem> todoItems) {
 //        this.todoItems = todoItems;
@@ -46,7 +51,7 @@ public class TodoData {
         String input;
 
         try {
-            while((input = br.readLine()) != null) {
+            while ((input = br.readLine()) != null) {
                 String[] itemPieces = input.split("\t");
 
                 String shortDescription = itemPieces[0];
@@ -58,7 +63,7 @@ public class TodoData {
                 todoItems.add(todoItem);
             }
         } finally {
-            if(br != null) {
+            if (br != null) {
                 br.close();
             }
         }
@@ -70,7 +75,7 @@ public class TodoData {
         BufferedWriter bw = Files.newBufferedWriter(path);
         try {
             Iterator<TodoItem> iter = todoItems.iterator();
-            while(iter.hasNext()) {
+            while (iter.hasNext()) {
                 TodoItem item = iter.next();
                 bw.write(String.format("%s\t%s\t%s",
                         item.getShortDescription(),
@@ -81,7 +86,7 @@ public class TodoData {
 
 
         } finally {
-            if(bw != null) {
+            if (bw != null) {
                 bw.close();
             }
         }
