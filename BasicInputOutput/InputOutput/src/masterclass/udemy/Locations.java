@@ -1,5 +1,6 @@
 package masterclass.udemy;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,11 +10,11 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 
     public static void main(String[] args) throws IOException {
-        try(FileWriter locFile = new FileWriter("locations.txt");
-            FileWriter dirFile = new FileWriter("directions.txt")) {
-            for(Location location : locations.values()) {
-                locFile.write(location.getLocationID() + ". " + location.getDescription() +"\n");
-                for(String direction : location.getExits().keySet()) {
+        try (FileWriter locFile = new FileWriter("locations.txt");
+             FileWriter dirFile = new FileWriter("directions.txt")) {
+            for (Location location : locations.values()) {
+                locFile.write(location.getLocationID() + ". " + location.getDescription() + "\n");
+                for (String direction : location.getExits().keySet()) {
                     dirFile.write(location.getLocationID() + ". " + direction + ". " + location.getExits().get(direction) + "\n");
                 }
             }
@@ -41,7 +42,7 @@ public class Locations implements Map<Integer, Location> {
         try {
             scanner = new Scanner(new FileReader("locations.txt"));
             scanner.useDelimiter(". ");
-            while(scanner.hasNextLine()) {
+            while (scanner.hasNextLine()) {
                 int loc = scanner.nextInt();
                 scanner.skip(scanner.delimiter());
                 String description = scanner.nextLine();
@@ -52,10 +53,39 @@ public class Locations implements Map<Integer, Location> {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            if (scanner != null) {
+                scanner.close();
+            }
+        }
+        //Now read the exits
+        try {
+            scanner = new Scanner(new BufferedReader(new FileReader("directions.txt")));
+            scanner.useDelimiter(". ");
+            while (scanner.hasNextLine()) {
+//                int loc = scanner.nextInt();
+//                scanner.skip(scanner.delimiter());
+//                String direction = scanner.next();
+//                scanner.skip(scanner.delimiter());
+//                String dest = scanner.nextLine();
+//                int destination = Integer.parseInt(dest);
+                String input = scanner.nextLine();
+                String[] data = input.split(". ");
+                int loc = Integer.parseInt(data[0]);
+                String direction = data[1];
+                int destination = Integer.parseInt(data[2]);
+
+                System.out.println(loc + ": " + direction + ": " + destination);
+                Location location = locations.get(loc);
+                location.addExit(direction, destination);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
             if(scanner != null) {
                 scanner.close();
             }
         }
+
 //        Map<String, Integer> tempExit = new HashMap<String, Integer>();
 //        locations.put(0, new Location(0, "You are sitting in front of a computer learning Java", tempExit));
 //
