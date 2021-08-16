@@ -10,30 +10,30 @@ import java.util.Set;
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 
-    public static void main(String[] args) {
-        FileWriter locFile = null;
-        try {
-            locFile = new FileWriter("locations.txt");
+    public static void main(String[] args) throws IOException {
+        try(FileWriter locFile = new FileWriter("locations.txt")) {
             for(Location location : locations.values()) {
-                locFile.write(location.getLocationID() + ". " + location.getDescription() + "\n");
-            }
-        } catch(IOException e) {
-            System.out.println("In catch block");
-            e.printStackTrace();
-        } finally {
-            //You want the .close to be in finally since it will close
-            //even if there are exceptions
-                    System.out.println("in finally block");
-            try {
-                if(locFile != null) {
-                    System.out.println("Attempting to close locFile");
-                    locFile.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+                locFile.write(location.getLocationID() + ". " + location.getDescription() +"\n");
             }
         }
+//        FileWriter locFile = null;  //must be declared here due to scope
+//        try {
+//            locFile = new FileWriter("locations.txt");
+//            for (Location location : locations.values()) {
+//                locFile.write(location.getLocationID() + ". " + location.getDescription() + "\n");
+////                throw new IOException("Test Exception thrown while writing");
+//            }
+//        } finally {
+//            //You want the .close to be in finally since it will close
+//            //even if there are exceptions
+//            System.out.println("in finally block");
+//            if (locFile != null) {
+//                System.out.println("Attempting to close locFile");
+//                locFile.close();
+//            }
+//        }
     }
+
     static {
         Map<String, Integer> tempExit = new HashMap<String, Integer>();
         locations.put(0, new Location(0, "You are sitting in front of a computer learning Java", tempExit));
