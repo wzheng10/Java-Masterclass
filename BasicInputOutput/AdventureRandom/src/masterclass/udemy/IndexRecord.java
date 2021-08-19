@@ -1,3 +1,5 @@
+package masterclass.udemy;
+
 public class IndexRecord {
     private int startByte;
     private int length;
