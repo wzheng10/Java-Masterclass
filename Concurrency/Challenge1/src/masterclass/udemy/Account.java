@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-class BankAccount {
+class Account {
 
     private double balance;
     private String accountNumber;
@@ -12,17 +12,20 @@ class BankAccount {
     private Lock lock;
 
 
-    public BankAccount(String accountNumber, double initialBalance) {
+    public Account(String accountNumber, double initialBalance) {
         this.accountNumber = accountNumber;
         this.balance = initialBalance;
         this.lock = new ReentrantLock();
     }
 
-    public synchronized void deposit(double amount) {
+    public synchronized boolean deposit(double amount) {
+
+        boolean status = false;
         try {
             if(lock.tryLock(1000, TimeUnit.MILLISECONDS)){
                 try {
                     balance += amount;
+                    status = true;
                 } finally {
                     lock.unlock();
                 }
@@ -32,9 +35,14 @@ class BankAccount {
         }catch(InterruptedException e) {
             //do something
         }
+
+        System.out.println("Transaction status = " + status);
+        return status;
     }
 
     public synchronized void withdraw(double amount) {
+
+        boolean status = false;
         try {
             if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
                 try {
@@ -45,9 +53,10 @@ class BankAccount {
             } else {
                 System.out.println("Could not get the lock");
             }
-        } else {
+        } catch(InterruptedException e){
             System.out.println("Could not get lock");
         }
+        System.out.println("Transaction status = " + status);
 
     }
 
