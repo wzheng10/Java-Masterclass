@@ -23,6 +23,7 @@ public class Main {
             public void run() {
                 bankAccount.deposit(300);
                 bankAccount.withdraw(50);
+                System.out.println("Transaction completed for account " + bankAccount.getAccountNumber());
             }
         });
         Thread trThread2 = new Thread(new Runnable() {
@@ -30,6 +31,7 @@ public class Main {
             public void run() {
                 bankAccount.deposit(203.65);
                 bankAccount.withdraw(100);
+                System.out.println("Transaction completed for account " + bankAccount.getAccountNumber());
             }
         });
 
