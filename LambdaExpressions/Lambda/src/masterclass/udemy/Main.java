@@ -18,11 +18,11 @@ public class Main {
 //        }).start();
 //    }
         //lambda expression
-        new Thread(() -> {
-            System.out.println("Printing from the Runnable");
-            System.out.println("Line 2");
-            System.out.format("This is line %d\n", 3);
-        }).start();
+//        new Thread(() -> {
+//            System.out.println("Printing from the Runnable");
+//            System.out.println("Line 2");
+//            System.out.format("This is line %d\n", 3);
+//        }).start();
 
 
         Employee john = new Employee("John Doe", 30);
@@ -42,6 +42,12 @@ public class Main {
 //                return employee1.getName().compareTo(employee2.getName());
 //            }
 //        });
+        //Components of a Lambda Expression
+        //Argument list :(Employee employee1, Employee employee2) //with Employee Type
+        //Arrow Token: ->
+        //Body: employee1.getName().compareTo(employee2.getName()
+        Collections.sort(employees,(employee1, employee2) ->
+                employee1.getName().compareTo(employee2.getName()));
         for(Employee employee : employees) {
             System.out.println(employee.getName());
         }
