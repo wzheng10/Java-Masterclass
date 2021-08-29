@@ -9,5 +9,8 @@ public class Main {
             utils.addChar(sb, 'a');
         }
         System.out.println(sb);
+
+        String str = "abcdfg";
+        String result = utils.upperAndPrefix(str);
     }
 }
