@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Banking/Banking.iml" filepath="$PROJECT_DIR$/Banking/Banking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Challenge/Challenge.iml" filepath="$PROJECT_DIR$/Challenge/Challenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Debugger.iml" filepath="$PROJECT_DIR$/.idea/Debugger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DebuggerDemo/DebuggerDemo.iml" filepath="$PROJECT_DIR$/DebuggerDemo/DebuggerDemo.iml" />
+    </modules>
+  </component>
+</project>

@@ -27,7 +27,7 @@ public class Utilities {
 
 
         //If length is less than 2, there won't be any pairs
-        if (source.length() < 2) {
+        if (source == null || source.length() < 2) {
             return source;
         }
 
