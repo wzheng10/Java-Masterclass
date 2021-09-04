@@ -1,9 +1,10 @@
 package masterclass.udemy.model;
 
-public class Artist {
+public class Album {
 
     private int id;
     private String name;
+    private int artistID;
 
     public int getId() {
         return id;
@@ -19,5 +20,13 @@ public class Artist {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getArtistID() {
+        return artistID;
+    }
+
+    public void setArtistID(int artistID) {
+        this.artistID = artistID;
     }
 }
