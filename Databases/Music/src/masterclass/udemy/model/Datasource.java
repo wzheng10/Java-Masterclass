@@ -14,8 +14,8 @@ public class Datasource {
     public static final String COLUMN_ALBUM_NAME = "name";
     public static final String COLUMN_ALBUM_ARTIST = "artist";
     public static final int INDEX_ALBUM_ID = 1;
-    public static final int  INDEX_ALBUM_NAME = 2;
-    public static final int  INDEX_ALBUM_ARTIST = 3;
+    public static final int INDEX_ALBUM_NAME = 2;
+    public static final int INDEX_ALBUM_ARTIST = 3;
 
     public static final String TABLE_ARTIST = "artists";
     public static final String COLUMN_ARTIST_ID = "_id";
@@ -33,9 +33,18 @@ public class Datasource {
     public static final int INDEX_SONG_TITLE = 3;
     public static final int INDEX_SONG_ALBUM = 3;
 
-    public static final int  ORDER_BY_NONE = 1;
-    public static final int  ORDER_BY_ASC = 2;
-    public static final int  ORDER_BY_DESC = 3;
+    public static final int ORDER_BY_NONE = 1;
+    public static final int ORDER_BY_ASC = 2;
+    public static final int ORDER_BY_DESC = 3;
+
+    public static final String QUERY_ALBUMS_BY_ARTIST_START =
+            "SELECT " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_NAME + " FROM " + TABLE_ALBUMS +
+                    " INNER JOIN " + TABLE_ARTIST + " ON " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_ARTIST +
+                    " = " + TABLE_ARTIST + '.' + COLUMN_ARTIST_ID +
+                    " WHERE " + TABLE_ARTIST + '.' + COLUMN_ARTIST_NAME + " =\"";
+
+    public static final String QUERY_ALBUMS_BY_ARTIST_SORT =
+            " ORDER BY " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_NAME + " COLLATE NOCASE ";
 
     private Connection conn;
 
@@ -66,11 +75,11 @@ public class Datasource {
 
         StringBuilder sb = new StringBuilder("SELECT * FROM ");
         sb.append(TABLE_ARTIST);
-        if(sortOrder != ORDER_BY_NONE) {
+        if (sortOrder != ORDER_BY_NONE) {
             sb.append(" ORDER BY ");
             sb.append(COLUMN_ARTIST_NAME);
             sb.append(" COLLATE NOCASE ");
-            if(sortOrder == ORDER_BY_DESC) {
+            if (sortOrder == ORDER_BY_DESC) {
                 sb.append("DESC");
             } else {
                 sb.append("ASC");
@@ -78,7 +87,7 @@ public class Datasource {
         }
 
         try (Statement statement = conn.createStatement();
-             ResultSet results = statement.executeQuery(sb.toString())){
+             ResultSet results = statement.executeQuery(sb.toString())) {
 
             List<Artist> artists = new ArrayList<>();
             while (results.next()) {
@@ -90,7 +99,69 @@ public class Datasource {
 
             return artists;
 
-        } catch(SQLException e){
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public List<String> queryAlbumsForArtist(String artistName, int sortOrder) {
+//          SELECT albums.name FROM albums INNER JOIN artists ON albums.artist = artists._id WHERE artists.name = "Carole King" ORDER BY albums.name COLLATE NOCASE ASC
+        StringBuilder sb = new StringBuilder(QUERY_ALBUMS_BY_ARTIST_START);
+        sb.append(artistName);
+        sb.append("\"");
+        //above 3 lines replaces below
+//        sb.append(TABLE_ALBUMS);
+//        sb.append('.');
+//        sb.append(COLUMN_ALBUM_NAME);
+//        sb.append(" FROM ");
+//        sb.append(TABLE_ALBUMS);
+//        sb.append(" INNER JOIN ");
+//        sb.append(TABLE_ARTIST);
+//        sb.append(" ON ");
+//        sb.append(TABLE_ALBUMS);
+//        sb.append('.');
+//        sb.append(COLUMN_ALBUM_ARTIST);
+//        sb.append(" = ");
+//        sb.append(TABLE_ARTIST);
+//        sb.append('.');
+//        sb.append(COLUMN_ARTIST_ID);
+//        sb.append(" WHERE ");
+//        sb.append(TABLE_ARTIST);
+//        sb.append('.');
+//        sb.append(COLUMN_ARTIST_NAME);
+//        sb.append(" = \"");
+//        sb.append(artistName);
+//        sb.append("\"");
+
+        if (sortOrder != ORDER_BY_NONE) {
+            sb.append(QUERY_ALBUMS_BY_ARTIST_SORT);
+            //above line replaces below
+//            sb.append(" ORDER BY ");
+//            sb.append(TABLE_ALBUMS);
+//            sb.append('.');
+//            sb.append(COLUMN_ALBUM_NAME);
+//            sb.append(" COLLATE NOCASE ");
+            if (sortOrder == ORDER_BY_DESC) {
+                sb.append("DESC");
+            } else {
+                sb.append("ASC");
+            }
+        }
+
+        System.out.println("SQL statement = " + sb.toString());
+
+        try (Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery(sb.toString())) {
+
+            List<String> albums = new ArrayList<>();
+            while(results.next()) {
+                albums.add(results.getString(1));
+            }
+
+            return albums;
+
+        } catch(SQLException e) {
             System.out.println("Query failed: " + e.getMessage());
             return null;
         }
