@@ -1,5 +1,6 @@
 package masterclass.udemy.model;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,20 @@ public class Datasource {
             " ORDER BY " + TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + ", " +
                     TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + " COLLATE NOCASE ";
 
-    private Connection conn;
+    public static final String TABLE_ARTIST_SONG_VIEW = "artist_list";
+    public static final String CREATE_ARTIST_FOR_SONG_VIEW = "CREATE VIEW IF NOT EXISTS " +
+            TABLE_ARTIST_SONG_VIEW + " AS SELECT " + TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + ", " +
+            TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + " AS " + COLUMN_SONG_ALBUM + ", " +
+            TABLE_SONGS + "." + COLUMN_SONG_TRACK + ", " + TABLE_SONGS + "." + COLUMN_SONG_TITLE +
+            " FROM " + TABLE_SONGS +
+            " INNER JOIN " + TABLE_ALBUMS + " ON " + TABLE_SONGS +
+            "." + COLUMN_SONG_ALBUM + " = " + TABLE_ALBUMS + "." + COLUMN_ALBUM_ID +
+            " INNER JOIN " + TABLE_ARTISTS + " ON " + TABLE_ALBUMS + "." + COLUMN_ALBUM_ARTIST +
+            " ORDER BY " +
+            TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + ", " +
+            TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + ", " +
+            TABLE_SONGS + "." + COLUMN_SONG_TRACK;
+     private Connection conn;
 
     public boolean open() {
         try {
@@ -210,6 +224,7 @@ public class Datasource {
                 songArtists.add(songArtist);
             }
 
+
             return songArtists;
 
         } catch (SQLException e) {
@@ -222,16 +237,45 @@ public class Datasource {
         String sql = "SELECT * FROM " + TABLE_SONGS;
 
         try (Statement statement = conn.createStatement();
-        ResultSet results = statement.executeQuery(sql)) {
+             ResultSet results = statement.executeQuery(sql)) {
 
             ResultSetMetaData meta = results.getMetaData();
             int numColumns = meta.getColumnCount();
-            for(int i=1; i<= numColumns; i++) {
+            for (int i = 1; i <= numColumns; i++) {
                 System.out.format("Column %d in the songs table is names %s\n",
                         i, meta.getColumnName(i));
             }
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Query failed; " + e.getMessage());
+        }
+    }
+
+    public int getCount(String table) {
+        //SELECT COUNT(*) FROM songs
+        String sql = "SELECT COUNT(*) AS count FROM " + table;
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery(sql)){
+
+            int count = results.getInt("count");
+
+            System.out.format("Count = %d\n", count);
+            return count;
+        } catch(SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+            return -1;
+        }
+    }
+
+    public boolean createViewForSongArtists() {
+
+        try (Statement statement = conn.createStatement()) {
+
+            statement.execute(CREATE_ARTIST_FOR_SONG_VIEW);
+                return true;
+
+        } catch(SQLException e) {
+            System.out.println("Create View failed: " + e.getMessage());
+            return false;
         }
     }
 }
