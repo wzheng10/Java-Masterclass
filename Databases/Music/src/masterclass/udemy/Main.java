@@ -5,6 +5,7 @@ import masterclass.udemy.model.Datasource;
 import masterclass.udemy.model.SongArtist;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -47,6 +48,22 @@ public class Main {
         System.out.println("Number of songs is: " + count);
 
         datasource.createViewForSongArtists();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a song title: ");
+        String title = scanner.nextLine();
+
+        songArtists = datasource.querySongInfoView(title);
+        if(songArtists.isEmpty()) {
+            System.out.println("Couldn't find the artist for the song");
+            return;
+        }
+
+        for(SongArtist artist : songArtists) {
+            System.out.println("FROM VIEW - Artist name = " + artist.getArtistName() +
+                    " Album name = " + artist.getAlbumName() +
+                    " Track number = " + artist.getTrack());
+        }
         datasource.close();
     }
 }
