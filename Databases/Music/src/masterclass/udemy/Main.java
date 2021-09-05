@@ -41,6 +41,7 @@ public class Main {
                     " Track = " + artist.getTrack());
         }
 
+        datasource.querySongsMetadata();
         datasource.close();
     }
 }
