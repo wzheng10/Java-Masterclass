@@ -1,24 +1,24 @@
 package masterclass.udemy.model;
 
 public class SongArtist {
-    private String artist;
-    private String album;
+    private String artistName;
+    private String albumName;
     private int track;
 
-    public String getArtist() {
-        return artist;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
-    public String getAlbum() {
-        return album;
+    public String getAlbumName() {
+        return albumName;
     }
 
-    public void setAlbum(String album) {
-        this.album = album;
+    public void setAlbumName(String albumName) {
+        this.albumName = albumName;
     }
 
     public int getTrack() {
