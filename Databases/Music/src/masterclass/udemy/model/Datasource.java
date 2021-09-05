@@ -38,13 +38,27 @@ public class Datasource {
     public static final int ORDER_BY_DESC = 3;
 
     public static final String QUERY_ALBUMS_BY_ARTIST_START =
-            "SELECT " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_NAME + " FROM " + TABLE_ALBUMS +
-                    " INNER JOIN " + TABLE_ARTIST + " ON " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_ARTIST +
-                    " = " + TABLE_ARTIST + '.' + COLUMN_ARTIST_ID +
-                    " WHERE " + TABLE_ARTIST + '.' + COLUMN_ARTIST_NAME + " =\"";
+            "SELECT " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + " FROM " + TABLE_ALBUMS +
+                    " INNER JOIN " + TABLE_ARTIST + " ON " + TABLE_ALBUMS + "." + COLUMN_ALBUM_ARTIST +
+                    " = " + TABLE_ARTIST + "." + COLUMN_ARTIST_ID +
+                    " WHERE " + TABLE_ARTIST + "." + COLUMN_ARTIST_NAME + " =\"";
 
     public static final String QUERY_ALBUMS_BY_ARTIST_SORT =
-            " ORDER BY " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_NAME + " COLLATE NOCASE ";
+            " ORDER BY " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + " COLLATE NOCASE ";
+
+    public static final String QUERY_ARTIST_FOR_SONG_START =
+            "SELECT " + TABLE_ARTIST + "." + COLUMN_ARTIST_NAME + ", " +
+                    TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + ", " +
+                    TABLE_SONGS + "." + COLUMN_SONG_TRACK + " FROM " + TABLE_SONGS +
+                    " INNER JOIN " + TABLE_ALBUMS + " ON " +
+                    TABLE_SONGS + "." + COLUMN_SONG_ALBUM + " = " + TABLE_ALBUMS + "." +COLUMN_ALBUM_ID +
+                    " INNER JOIN " + TABLE_ARTIST + " ON " +
+                    TABLE_ALBUMS + "." + COLUMN_ALBUM_ARTIST + " = " + TABLE_ARTIST + "." + COLUMN_ARTIST_ID +
+                    " WHERE " + TABLE_SONGS + "." + COLUMN_SONG_TITLE + "= \"";
+
+    public static final String QUERY_ARTIST_FOR_SONG_SORT =
+            " ORDER BY " + TABLE_ARTIST + "." + COLUMN_ARTIST_NAME + ", " +
+                    TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + "COLLATE NOCASE";
 
     private Connection conn;
 
@@ -112,7 +126,7 @@ public class Datasource {
         sb.append("\"");
         //above 3 lines replaces below
 //        sb.append(TABLE_ALBUMS);
-//        sb.append('.');
+//        sb.append(".");
 //        sb.append(COLUMN_ALBUM_NAME);
 //        sb.append(" FROM ");
 //        sb.append(TABLE_ALBUMS);
@@ -120,15 +134,15 @@ public class Datasource {
 //        sb.append(TABLE_ARTIST);
 //        sb.append(" ON ");
 //        sb.append(TABLE_ALBUMS);
-//        sb.append('.');
+//        sb.append(".");
 //        sb.append(COLUMN_ALBUM_ARTIST);
 //        sb.append(" = ");
 //        sb.append(TABLE_ARTIST);
-//        sb.append('.');
+//        sb.append(".");
 //        sb.append(COLUMN_ARTIST_ID);
 //        sb.append(" WHERE ");
 //        sb.append(TABLE_ARTIST);
-//        sb.append('.');
+//        sb.append(".");
 //        sb.append(COLUMN_ARTIST_NAME);
 //        sb.append(" = \"");
 //        sb.append(artistName);
@@ -139,7 +153,7 @@ public class Datasource {
             //above line replaces below
 //            sb.append(" ORDER BY ");
 //            sb.append(TABLE_ALBUMS);
-//            sb.append('.');
+//            sb.append(".");
 //            sb.append(COLUMN_ALBUM_NAME);
 //            sb.append(" COLLATE NOCASE ");
             if (sortOrder == ORDER_BY_DESC) {
