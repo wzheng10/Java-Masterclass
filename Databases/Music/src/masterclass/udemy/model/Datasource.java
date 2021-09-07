@@ -78,7 +78,7 @@ public class Datasource {
 
     public static final String QUERY_VIEW_SONG_INFO = "SELECT " + COLUMN_ARTIST_NAME + ", " +
             COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW +
-            " WHERE " + COLUMN_SONG_TITLE + " =\"";
+            " WHERE " + COLUMN_SONG_TITLE + " = \"";
 
     public static final String QUERY_VIEW_SONG_INFO_PREP = "SELECT " + COLUMN_ARTIST_NAME + ", " +
             COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW +
@@ -276,7 +276,7 @@ public class Datasource {
                         i, meta.getColumnName(i));
             }
         } catch (SQLException e) {
-            System.out.println("Query failed; " + e.getMessage());
+            System.out.println("Query failed: " + e.getMessage());
         }
     }
 
@@ -344,9 +344,9 @@ public class Datasource {
                 throw new SQLException("Couldn't insert artist!");
             }
 
-            ResultSet generatedKey = insertIntoArtists.getGeneratedKeys();
-            if (generatedKey.next()) {
-                return generatedKey.getInt(1);
+            ResultSet generatedKeys = insertIntoArtists.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                return generatedKeys.getInt(1);
             } else {
                 throw new SQLException("Couldn't get _id for artist");
             }
@@ -377,13 +377,13 @@ public class Datasource {
         }
     }
 
-    private int insertSongs(String title, String artist, String album, int track) {
+    public void insertSongs(String title, String artist, String album, int track) {
         try {
             conn.setAutoCommit(false);
             int artistId = insertArtist(artist);
             int albumId = insertAlbum(album, artistId);
             insertIntoSongs.setInt(1, track);
-            insertIntoSongs.setString(1, title);
+            insertIntoSongs.setString(2, title);
             insertIntoSongs.setInt(3, albumId);
 
             int affectedRows = insertIntoSongs.executeUpdate();
@@ -393,26 +393,21 @@ public class Datasource {
                 throw new SQLException("The song insert failed");
             }
 
-        } catch(SQLException e)
-
-    {
-        System.out.println("Insert song exception: " + e.getMessage());
-        try {
-            System.out.println("Performing rollback");
-            conn.rollback();
-        } catch (SQLException e2) {
-            System.out.println("Oh boy, things are really bad! " + e2.getMessage());
-        }
-    } finally
-
-    {
-        try {
-            System.out.println("Resetting defauly commit behavior");
-            conn.setAutoCommit(true);
-        } catch (SQLException e) {
-            System.out.println("Couldn't reset auto-commit" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Insert song exception: " + e.getMessage());
+            try {
+                System.out.println("Performing rollback");
+                conn.rollback();
+            } catch (SQLException e2) {
+                System.out.println("Oh boy, things are really bad! " + e2.getMessage());
+            }
+        } finally {
+            try {
+                System.out.println("Resetting default commit behavior");
+                conn.setAutoCommit(true);
+            } catch (SQLException e) {
+                System.out.println("Couldn't reset auto-commit" + e.getMessage());
+            }
         }
     }
-}
-
 }
