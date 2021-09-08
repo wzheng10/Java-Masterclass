@@ -1,23 +1,31 @@
-package masterclass.udemy.model;
+package sample.model;
+
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 public class Artist {
 
-    private int id;
-    private String name;
+    private SimpleIntegerProperty id;
+    private SimpleStringProperty name;
+
+    public Artist() {
+        this.id = new SimpleIntegerProperty();
+        this.name = new SimpleStringProperty();
+    }
 
     public int getId() {
-        return id;
+        return id.get();
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id.set(id);
     }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name.set(name);
     }
 }
