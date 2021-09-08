@@ -25,7 +25,7 @@ public class Main {
                 output.println("Echo from server: " + echoString);
             }
         } catch (IOException e) {
-            System.out.println("Server exeption " + e.getMessage());
+            System.out.println("Server exception " + e.getMessage());
             e.printStackTrace();
         }
     }
