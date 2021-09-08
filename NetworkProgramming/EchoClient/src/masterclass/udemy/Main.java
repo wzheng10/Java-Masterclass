@@ -22,8 +22,11 @@ public class Main {
             do {
                 System.out.println("Enter string to be echoed: ");
                 echoString = scanner.nextLine();
+
+                stringToEcho.println(echoString);
                 if(!echoString.equals("exit")) {
                     response = echoes.readLine();
+                    System.out.println(response);
                 }
             } while(!echoString.equals("exit"));
 
